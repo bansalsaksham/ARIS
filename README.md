@@ -10,7 +10,8 @@ A.R.I.S. is an autonomous ground rover designed to enter structurally compromise
 
 ## Demo
 
----<img width="991" height="599" alt="Screenshot 2026-03-30 at 9 51 57 PM" src="https://github.com/user-attachments/assets/46ebeda9-5801-4d2f-adf5-938d465f5063" />
+---
+<img width="991" height="599" alt="Screenshot 2026-03-30 at 9 51 57 PM" src="https://github.com/user-attachments/assets/46ebeda9-5801-4d2f-adf5-938d465f5063" />
 
 *The live WebSocket dashboard showing IMU heading, sonar clearance, and hazard air quality.*
 
