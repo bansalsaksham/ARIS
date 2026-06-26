@@ -1,9 +1,9 @@
-# A.R.I.S. — Autonomous Rescue & Inspection System
+# A.R.I.S. - Autonomous Rescue & Inspection System
 
 > **Innovate ECE 2026 · Robotics & Autonomous Systems Thread · Georgia Institute of Technology**  
 > *Saksham Bansal*
 
-A.R.I.S. is an autonomous ground rover designed to enter structurally compromised disaster environments ahead of human personnel. It perceives its surroundings through a multi-modal sensor array, makes decisions using a non-blocking Finite State Machine (FSM), and streams real-time telemetry to an operator dashboard — all on commodity hardware for under $50.
+A.R.I.S. is an autonomous ground rover designed to enter structurally compromised disaster environments ahead of human personnel. It perceives its surroundings through a multi-modal sensor array, makes decisions using a non-blocking Finite State Machine (FSM), and streams real-time telemetry to an operator dashboard.
 
 
 
@@ -34,9 +34,9 @@ EXPLORING  ──(obstacle < 25cm)──▶  TURNING  ──(path clear > 35cm)�
      └──(gas ADC > threshold)──▶  HAZARD DETECTED (halt & pulse)
 ```
 
-- **EXPLORING** — Default state. Drives forward with closed-loop heading correction. A proportional controller reads Z-axis gyroscope data and applies a corrective PWM differential across the left/right motor channels to maintain a straight bearing.
-- **TURNING** — Triggered when an obstacle is detected within 25 cm. Executes a closed-loop 90° point-turn using gyroscope threshold-crossing feedback. Dynamically monitors clearance and immediately resumes exploration if the path clears (> 35 cm), preventing infinite spin traps.
-- **HAZARD DETECTED** — Triggered when the MQ-6 gas ADC reading exceeds the calibrated threshold. Halts all motion and pulses the motors as a physical alert signal.
+- **EXPLORING** - Default state. Drives forward with closed-loop heading correction. A proportional controller reads Z-axis gyroscope data and applies a corrective PWM differential across the left/right motor channels to maintain a straight bearing.
+- **TURNING** - Triggered when an obstacle is detected within 25 cm. Executes a closed-loop 90° point-turn using gyroscope threshold-crossing feedback. Dynamically monitors clearance and immediately resumes exploration if the path clears (> 35 cm), preventing infinite spin traps.
+- **HAZARD DETECTED** - Triggered when the MQ-6 gas ADC reading exceeds the calibrated threshold. Halts all motion and pulses the motors as a physical alert signal.
 
 ---
 
@@ -78,7 +78,7 @@ EXPLORING  ──(obstacle < 25cm)──▶  TURNING  ──(path clear > 35cm)�
 | MPU6050 SDA | GPIO 21 |
 | MQ-6 AOUT | GPIO 36 (ADC1 — required for Wi-Fi) |
 
-> **⚠️ Power Isolation Required:** Power the ESP32 from a 5V USB bank and the L298N from the 6V battery pack separately. Share only GND. **Leave the L298N's onboard 5V pin completely empty** — bridging it to the ESP32 will cause brownouts.
+> **⚠️ Power Isolation Required:** Power the ESP32 from a 5V USB bank and the L298N from the 6V battery pack separately. Share only GND. **Leave the L298N's onboard 5V pin completely empty** - bridging it to the ESP32 will cause brownouts.
 
 > **⚠️ GPIO Warning:** Do not map pins by physical position. Use the GPIO numbers printed on the ESP32 silkscreen to avoid flash memory conflicts.
 
@@ -135,10 +135,10 @@ Manually via **Sketch → Include Library → Add .ZIP Library**:
 
 ## Key Implementation Notes
 
-- **ADC1 only for gas sensor** — ADC2 is disabled during Wi-Fi operation on ESP32. GPIO 36 (ADC1) is required.
-- **Non-blocking FSM** — The main loop never calls `delay()` during navigation states, keeping WebSocket telemetry responsive.
-- **Inverted gyro math** — The yaw integration uses `-=` (not `+=`) to correct for the gyroscope's positive feedback orientation on this chassis.
-- **Gas threshold** — Default is `1800` on the 0–4095 ADC scale. Tune `gasThreshold` in the firmware after a 10-minute warm-up period for your environment.
+- **ADC1 only for gas sensor** - ADC2 is disabled during Wi-Fi operation on ESP32. GPIO 36 (ADC1) is required.
+- **Non-blocking FSM** - The main loop never calls `delay()` during navigation states, keeping WebSocket telemetry responsive.
+- **Inverted gyro math** - The yaw integration uses `-=` (not `+=`) to correct for the gyroscope's positive feedback orientation on this chassis.
+- **Gas threshold** - Default is `1800` on the 0–4095 ADC scale. Tune `gasThreshold` in the firmware after a 10-minute warm-up period for your environment.
 
 ---
 
