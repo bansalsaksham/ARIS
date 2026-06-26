@@ -5,11 +5,12 @@
 
 A.R.I.S. is an autonomous ground rover designed to enter structurally compromised disaster environments ahead of human personnel. It perceives its surroundings through a multi-modal sensor array, makes decisions using a non-blocking Finite State Machine (FSM), and streams real-time telemetry to an operator dashboard — all on commodity hardware for under $50.
 
----
+
+
 
 ## Demo
 
-![A.R.I.S. Command Center – Exploring State](https://raw.githubusercontent.com/placeholder/aris/main/docs/dashboard_exploring.png)
+---<img width="991" height="599" alt="Screenshot 2026-03-30 at 9 51 57 PM" src="https://github.com/user-attachments/assets/46ebeda9-5801-4d2f-adf5-938d465f5063" />
 
 *The live WebSocket dashboard showing IMU heading, sonar clearance, and hazard air quality.*
 
@@ -140,6 +141,10 @@ Manually via **Sketch → Include Library → Add .ZIP Library**:
 - **Gas threshold** — Default is `1800` on the 0–4095 ADC scale. Tune `gasThreshold` in the firmware after a 10-minute warm-up period for your environment.
 
 ---
+
+<img width="640" height="546" alt="55236679976_376ef51f6d_z" src="https://github.com/user-attachments/assets/09c17736-f2ce-4644-ad5f-e9254c8ce2f2" />
+<img width="639" height="593" alt="55235773642_5f0d156675_z" src="https://github.com/user-attachments/assets/bb56f377-d260-40e2-8874-12b94b5e6f71" />
+
 
 ## Project Structure
 
